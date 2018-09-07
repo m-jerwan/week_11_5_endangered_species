@@ -16,7 +16,7 @@ const handleFormSubmition = function (event) {
     const conservationStatus = thisFormSubmition.conservation_status.value;
 
     let resultDiv = document.createElement('div');
-    let resultH5 = document.createElement('h5');
+    let resultH = document.createElement('h3');
     let resultUl = document.createElement('ul');
     let resultLiSciName = document.createElement('li');
     let resultLiPopulation = document.createElement('li');
@@ -24,13 +24,13 @@ const handleFormSubmition = function (event) {
     let resultLiStatus = document.createElement('li');
 
 
-    resultH5.textContent = commonName;
-    resultLiSciName.textContent = scientificName;
-    resultLiPopulation.textContent = population;
-    resultLiHabitat.textContent = habitat;
-    resultLiStatus.textContent = conservationStatus;
+    resultH.textContent = commonName;
+    resultLiSciName.textContent = `Scientific name: ${scientificName}`;
+    resultLiPopulation.textContent = `Population: ${population}`;
+    resultLiHabitat.textContent = `Habitat: ${habitat}`;
+    resultLiStatus.textContent = `Conservation status: ${conservationStatus}`;
 
-    resultDiv.appendChild(resultH5);
+    resultDiv.appendChild(resultH);
     resultUl.appendChild(resultLiSciName);
     resultUl.appendChild(resultLiPopulation);
     resultUl.appendChild(resultLiHabitat);
