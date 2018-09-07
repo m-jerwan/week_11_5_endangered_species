@@ -46,3 +46,17 @@ body{
     list-style-type: none;
     text-indent: -1rem;
 }
+
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+

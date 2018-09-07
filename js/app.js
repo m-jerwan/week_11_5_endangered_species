@@ -23,12 +23,22 @@ const handleFormSubmition = function (event) {
     let resultLiHabitat = document.createElement('li');
     let resultLiStatus = document.createElement('li');
 
-
     resultH.textContent = commonName;
     resultLiSciName.textContent = `Scientific name: ${scientificName}`;
     resultLiPopulation.textContent = `Population: ${population}`;
     resultLiHabitat.textContent = `Habitat: ${habitat}`;
     resultLiStatus.textContent = `Conservation status: ${conservationStatus}`;
+
+    if (conservationStatus === "Extinct" || conservationStatus === "Extinct in the wild" || conservationStatus === "Critically endangered") {
+        console.dir(conservationStatus);
+        resultLiStatus.className = "red"
+    } else if (conservationStatus === "Endangered" || conservationStatus === "Vulnerable" || conservationStatus === "Near threatened") {
+        resultLiStatus.className = "yellow"
+    }else{
+        resultLiStatus.className = "green"
+    }
+
+
 
     resultDiv.appendChild(resultH);
     resultUl.appendChild(resultLiSciName);
