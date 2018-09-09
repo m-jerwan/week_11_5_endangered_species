@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //MAIN ENGINE:
 const handleFormSubmition = function (event) {
     event.preventDefault();
+    
     const rawData = extractRawData()
     const preparedData = prepDataIntoHtml(rawData);
     appendElements(preparedData);
@@ -30,8 +31,10 @@ const extractRawData = function(){
     return rawData;
 }
 
-const prepDataIntoHtml = function(rawData){
 
+
+
+const prepDataIntoHtml = function(rawData){
     let preparingELements = {
      resultDiv: document.createElement('div'),
      resultH: document.createElement('h3'),
@@ -48,18 +51,20 @@ const prepDataIntoHtml = function(rawData){
     preparingELements.resultLiHabitat.textContent = `Habitat: ${rawData.habitat}`;
     preparingELements.resultLiStatus.textContent = `Conservation status: ${rawData.conservation_status}`;
 
-
-    if (rawData.conservation_status === "Extinct" || rawData.conservation_status === "Extinct in the wild" || rawData.conservation_status === "Critically endangered") {
-        preparingELements.resultLiStatus.className = "red"
-    } else if (rawData.conservation_status === "Endangered" || rawData.conservation_status === "Vulnerable" || rawData.conservation_status === "Near threatened") {
-        preparingELements.resultLiStatus.className = "yellow"
-    }else{
-        preparingELements.resultLiStatus.className = "green"
-    }
+    statusColoring(rawData.conservation_status, preparingELements.resultLiStatus)
 
     return preparingELements;
 }
 
+const statusColoring = function (string, elementToChangeClass) {
+    if (string === "Extinct" || string === "Extinct in the wild" || string === "Critically endangered") {
+        elementToChangeClass.className = "red"
+    } else if (string === "Endangered" || string === "Vulnerable" || string === "Near threatened") {
+        elementToChangeClass.className = "yellow"
+    } else {
+        elementToChangeClass.className = "green"
+    }
+}
 
 
 const appendElements = function (data){
