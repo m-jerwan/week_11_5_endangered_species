@@ -1,5 +1,7 @@
 body{
     display: flex;
+    background-color: rgb(200, 200, 200);
+    font-family: 'Roboto', sans-serif;
 }
 
 .top,
@@ -23,10 +25,12 @@ body{
 }
 
 .form_wrapper{
-    padding-top: 3rem;
+    background-color: rgba(180, 180, 180, 100);
+    padding:  2rem 0 2rem;
     flex-direction: column;
     text-align: center;
 }
+
 
 
 .list{
@@ -39,7 +43,7 @@ body{
 .list div {
     padding: 0.5rem; 
     box-sizing: border-box;
-    width: 50%;
+    min-width: 30%;
 }
 
 .list div li {

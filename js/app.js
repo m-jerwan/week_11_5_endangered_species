@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //MAIN ENGINE:
 const handleFormSubmition = function (event) {
     event.preventDefault();
-    
+
     const rawData = extractRawData()
     const preparedData = prepDataIntoHtml(rawData);
     appendElements(preparedData);
@@ -30,8 +30,6 @@ const extractRawData = function(){
     }
     return rawData;
 }
-
-
 
 
 const prepDataIntoHtml = function(rawData){
